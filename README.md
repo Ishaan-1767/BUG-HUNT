@@ -111,7 +111,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Open **http://127.0.0.1:5000**. The database is created automatically.
+Then open `http://127.0.0.1:5000` in your browser. The database is created automatically.
 
 ## 🔌 API
 
@@ -149,7 +149,7 @@ More missions and difficulty levels · user accounts · hosted global leaderboar
 ## 👤 Author
 
 Built by **Ishaan Singh** as a portfolio project for SDET roles.
-[GitHub](https://github.com/Ishaan-1767) · [LinkedIn](www.linkedin.com/in/ishaansingh18)
+[GitHub](https://github.com/Ishaan-1767) · [LinkedIn](https://www.linkedin.com/in/ishaansingh18)
 
 ---
 
