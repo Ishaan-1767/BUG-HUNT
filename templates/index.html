@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BUG//HUNT — NEXUS SYSTEMS</title>
+<link rel="icon" href="{{ url_for('static', filename='assets/favicon.svg') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas><div class="scan" aria-hidden="true"></div>
+<main id="app">
+  <section id="landing" class="screen">
+    <p class="dim">NEXUS SYSTEMS // QUALITY ASSURANCE DIVISION</p>
+    <div class="panel logo"><h1 class="glitch" data-t="BUG//HUNT">BUG//HUNT</h1><p class="tag">FIND IT. BREAK IT. FIX IT.</p></div>
+    <p class="term">SYSTEM ONLINE<br>QA OPERATIVE REQUIRED<br><span id="defects">8</span> ACTIVE DEFECTS DETECTED</p>
+    <p class="dim">SYSTEM STATUS: <span id="status" class="ok">CHECKING…</span></p>
+    <button class="btn big" id="startBtn">[ START HUNT ]</button>
+    <button class="btn ghost" id="boardBtn">LEADERBOARD</button>
+    <p class="dim" id="best"></p>
+  </section>
+
+  <section id="briefing" class="screen" hidden>
+    <pre class="panel term" id="briefText" aria-live="polite"></pre>
+    <button class="btn big" id="beginBtn">[ BEGIN MISSION ]</button>
+  </section>
+
+  <section id="mission" class="screen wide" hidden>
+    <header class="hud panel" aria-label="Game status">
+      <div><b id="hudMission">MISSION 01 / 08</b><br><span id="hudTitle"></span></div>
+      <div>XP <b id="hudXp">0</b><br>SCORE <b id="hudScore">0</b></div>
+      <div>COMBO <b id="hudCombo">x1</b><br><span id="hudRank" class="dim"></span></div>
+      <div id="hudLives" aria-label="Lives"></div>
+      <div>TIME<br><b id="hudTime" class="big-t">01:30</b></div>
+      <div class="bar" role="progressbar" aria-label="Mission progress" id="hudBarWrap"><i id="hudBar"></i></div>
+    </header>
+    <div class="cols">
+      <div class="panel"><h2>TARGET SYSTEM</h2><p id="mBrief" class="dim"></p><div id="artifact"></div></div>
+      <form class="panel" id="report" autocomplete="off">
+        <h2>DEFECT REPORT</h2>
+        <fieldset><legend>BUG CATEGORY</legend><div class="chips" id="cats"></div></fieldset>
+        <fieldset><legend>SEVERITY</legend><div class="chips" id="sevs"></div></fieldset>
+        <label for="diag">DIAGNOSIS</label>
+        <textarea id="diag" rows="3" maxlength="300" placeholder="What is wrong? Expected vs actual…"></textarea>
+        <p id="msg" class="warn" role="alert"></p>
+        <button class="btn big" type="submit" id="submitBtn">[ SUBMIT REPORT ]</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="result" class="screen" hidden><div class="panel" id="resultBody" aria-live="polite"></div>
+    <button class="btn big" id="nextBtn">[ NEXT MISSION ]</button></section>
+
+  <section id="fail" class="screen" hidden><div class="panel danger"><h2 class="glitch red" data-t="✕ SYSTEM FAILURE">✕ SYSTEM FAILURE</h2>
+    <p>THE DEFECT ESCAPED.<br>OPERATIVE LIVES: 0<br><span class="warn">RETRY COST: -100 XP</span></p>
+    <button class="btn big" id="retryBtn">[ RETRY MISSION ]</button></section>
+
+  <section id="final" class="screen" hidden><div class="panel" id="finalBody"></div>
+    <form id="nameForm" class="panel row"><label for="pname">CALLSIGN</label>
+      <input id="pname" maxlength="16" placeholder="Your name"><button class="btn" type="submit">[ ENTER LEADERBOARD ]</button>
+      <p id="nameMsg" class="warn" role="alert"></p></form>
+    <button class="btn ghost" id="againBtn">[ PLAY AGAIN ]</button></section>
+</main>
+
+<dialog id="boardDlg" class="panel"><h2>LEADERBOARD</h2><div id="boardBody"></div>
+  <button class="btn" id="boardClose">CLOSE</button></dialog>
+
+<button class="btn ghost consoleToggle" id="conBtn" aria-expanded="false" aria-controls="con">&gt;_ DEV CONSOLE</button>
+<aside id="con" class="panel" hidden aria-label="Developer console"><pre id="conLog"></pre></aside>
+
+<script src="{{ url_for('static', filename='js/api.js') }}"></script>
+<script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body></html>
